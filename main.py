@@ -40,15 +40,3 @@ quote = "I love Python"
 
 #print(quote.lower())
 
-#Slicing Operator
-print(quote[2:6])
-print(quote[7:13])
-print(quote[7:])
-print(quote[-1:])
-print(quote[-6:])
-
-#skip  
-print(quote[::2])
-
-#Reverse
-print(quote[::-1])
