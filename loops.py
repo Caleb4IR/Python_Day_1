@@ -63,7 +63,7 @@ player_stats = [10, 30, 60]
 # powered_up_stats = [i*2 for i in player_stats]
 # print(powered_up_stats)
 
-
+#Output should be [4,8,11,15,10,4]
 Avengers = [
     "Hulk",
     "Iron man",
@@ -74,11 +74,34 @@ Avengers = [
 ]
 
 word_lengths = []
-#Output should be [4,8,11,15,10,4]
 
 for name in Avengers:
-    # Calculate the length of each name and append it to the word_lengths list
     word_lengths.append(len(name))
 
 print(word_lengths)
 
+#Or
+#Length of avenger for each avenger in the avengers list
+names_char_count = [len(avenger) for avenger in Avengers]
+print(names_char_count)
+
+#Task
+#Characters with more than 10 letters in name should only be printed
+
+Avengers = [
+    "Hulk",
+    "Iron man",
+    "Black widow",
+    "Captain america",
+    "Spider man",
+    "Thor",
+]
+
+#Output should be ["Black widow", "Captain america"]
+
+specific_avengers = []
+
+for name in Avengers:
+    word_lengths.append(len(name))
+
+print(word_lengths)
