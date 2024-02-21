@@ -87,6 +87,7 @@ player_stats = [10, 30, 60]
 
 #Task
 #Characters with more than 10 letters in name should only be printed
+#Output should be ["Black widow", "Captain america"]
 
 Avengers = [
     "Hulk",
@@ -96,8 +97,6 @@ Avengers = [
     "Spider man",
     "Thor",
 ]
-
-#Output should be ["Black widow", "Captain america"]
 
 specific_avengers = []
 
