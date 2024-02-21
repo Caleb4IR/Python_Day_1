@@ -98,9 +98,15 @@ Avengers = [
     "Thor",
 ]
 
-specific_avengers = []
+# specific_avengers = []
 
-for name in Avengers:
-  if len(name) > 10:
-    specific_avengers.append(name)
+# for name in Avengers:
+#   if len(name) > 10:
+#     specific_avengers.append(name)
+# print(specific_avengers)
+
+#Or
+specific_avengers = [avenger for avenger in Avengers if len(avenger) > 10]
+print(specific_avengers)
+specific_avengers = [avenger.upper() for avenger in Avengers if len(avenger) > 10]
 print(specific_avengers)
