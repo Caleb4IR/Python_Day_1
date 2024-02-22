@@ -15,4 +15,5 @@
 
 ## QUIC
 - Despite being on a UDP protocol it is still secure
-  - 
+  - Includes built in encryption based on TSL 1.3 for secure communication between endpoints
+  - Packet headers are authenticated and message bodies are encrypted 
