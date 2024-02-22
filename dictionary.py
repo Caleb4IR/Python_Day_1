@@ -59,6 +59,8 @@ print(person.get("stats", {}))
 
 print(person.get("stats", {}).get("points"))
 
+print(person.get("stats", {}).get("points", "No values"))
+
 
 #Dictionary comprehension
 nums = {x: x for x in range(10)}

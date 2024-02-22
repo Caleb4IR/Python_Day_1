@@ -238,7 +238,7 @@
 # print(movie_copy3)
 
 # movie_copy4 = {"rating": 10, "year": 2002, **movie}
-# print(movie_copy4)
+# print(movie_copy4) #right most value replaces left value
 
 # movie = {
 #   "name": "Mr Bones",
@@ -252,6 +252,7 @@
 
 # movie_details = {**movie, **detail} #Preferred way to add dictionaries together
 # print(movie_details)
+#* is unpacking operator
 
 price = [1000, 1200, 400]
 price_copy = [*price] # Copy 
