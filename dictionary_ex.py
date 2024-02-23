@@ -228,6 +228,8 @@
 # movie_copy1 = movie.copy()
 
 # #unpacking operator  * -> List | ** -> Dictionary
+#Lets you add as many items as you want
+#It takes right most value to overide the left most value
 # movie_copy2 = {**movie} #Copy
 # print(movie_copy2)
 

@@ -97,9 +97,29 @@ print(mul(3)(6))
 
 
 result1 = map(lambda x: x * 2, [10,30,60])
-result2 = filter(lambda x: x > 10, [10,50, 60, 100, 6, 8, 30])
+result2 = filter(lambda x: x > 10, [10,50, 60, 100, 6, 8, 30]) #Function it accepts wants to be returned as a boolean, if condition is true then you will get the final result, if not then no final result
 print(list(result1))
 print(list(result2))
+
+#Map
+#It always returns a cpy of array
+#sourcearray.length == outputarray.length ->true
+#Used when you want to transform a data type too, when you want nameless function and for single use only
+
+
+
+avengers = [
+  "Hulk",
+  "Iron man"
+  "Black widown"
+  "Captain america"
+  "Spider man"
+  "Thor"
+]
+
+map(lambda avenger: len(avenger), avengers)
+letters_count = map(lambda avenger: len(avenger), avengers)
+list(letters_count)
 
 #Pythonic way
 
@@ -117,7 +137,7 @@ print(any([True,False,True])) #or
 
 print(all([10,0,30,-1]))
 
-#Everything considered false
+#Everything considered false. If you call boolean constructor and it becomes false then it will be falsy
 #1. 0
 #2. []
 #3. None
