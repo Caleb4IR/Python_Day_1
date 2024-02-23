@@ -1,3 +1,27 @@
+
+# def menu():
+#   print("============Welcome to the Hotel Booking System============")
+#   print("1. Add a room")
+#   print("2. Book a room")
+#   print("3. List available rooms")
+#   print("4. Exit")
+
+# menu()
+# option = int(input("Enter your choice: "))
+
+# while option != 4:
+#   if option ==1:
+#     add_room(rooms_list, room_number, bed_type, added_smoke_preference)
+#   elif option ==2:
+#     book_room(rooms_list, preferred_bed_type, smoke_preference)
+#   elif option ==3:
+#     list_available_rooms(rooms_list)
+#   else:
+#     print("Invalid option")
+#   menu()
+#   option = int(input("Enter your choice: "))
+
+
 rooms_list = [
   {"room_number": 101, "bed_type": "Single", "smoking": False, "availability": True},
   {"room_number": 102, "bed_type": "Double", "smoking": True, "availability": True},
@@ -18,7 +42,7 @@ def book_room(rooms, preferred_bed_type="Double", smoking_preference=False):
       booked_room["availability"] = False
       print(f"Room {booked_room['room_number']} booked successfully.")
   else:
-      print("No available room matching the preferences.")
+      print("No available room matching your preferences.")
 
 def list_available_rooms(rooms):
   print("Available rooms:")
