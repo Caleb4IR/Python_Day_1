@@ -4,7 +4,6 @@
 #print(name)
 #print("Hello my name is " + name)
 
-
 #name = input("What is my name? ")
 #print("Hello my name is " + name)
 
@@ -20,7 +19,7 @@
 #print(f"Your age is {age}")
 
 # Area of circle
-#import math as M  
+#import math as M
 #radius = input("What is the radius of the circle? ")
 #area = M.pi * float(radius) ** 2
 #print(f"The area of the circle is {area}")
@@ -39,4 +38,3 @@ quote = "I love Python"
 #print(quote[2])
 
 #print(quote.lower())
-

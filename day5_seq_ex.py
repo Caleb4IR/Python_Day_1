@@ -1,3 +1,4 @@
+from pprint import pprint
 movies = [
 
     {"title": "Inception", "ratings": [5, 4, 5, 4, 5]},
@@ -88,4 +89,8 @@ sorted_movies = sorted(movies_with_ratings, key=lambda x: x[1], reverse=True)
 
 sorted_movie_titles = list(map(lambda x: x[0], sorted_movies))
 
-print(sorted_movie_titles)
+top_3_movies = sorted_movie_titles[:3]
+
+pprint(sorted_movies)
+
+pprint(top_3_movies)
