@@ -57,17 +57,7 @@ fun()
 fun()
 fun()
 
-def fun(nums=[]):
-    nums.append(10)
-    print(nums)
-    nums.pop()
-
-fun()
-fun()
-fun()
-fun()
-
-
+#singleton -> None
 def fun(nums=None):
     if nums is None:
         nums = []
