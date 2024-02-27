@@ -59,3 +59,12 @@ post = "Loving the #sunny weather in #California. #travel #fun"
 
 # Output
 #['#sunny', '#California', '#travel', '#fun']
+
+## Classes
+
+#Virtual Environment
+#print()
+
+# myenv -> copy of python
+#.\myenv\Scripts\Activate.ps1 -> activate -> python -> local copy of python
+# deactivate -> python -> global python installed
