@@ -43,7 +43,13 @@ import re
 
 names = ["John Doe", "Jane Smith", "Alice Johnson", "Chris Evans"]
 #output = ["Doe, Jphn", "Smith, Jane", "Johnson, Alice", "Evans, Chris"]
-output = [re.sub(r'(\w+)\s(\w+)', r'\2, \1', name) for name in names]
+
+result = []
+for name in names:
+ result.append(re.sub(r'(\w+)\s+(\w+)', r'\2, \1', name))
+print(result)
+
+output = [re.sub(r'(\w+)\s+(\w+)', r'\2, \1', name) for name in names]
 
 print(output)
 
