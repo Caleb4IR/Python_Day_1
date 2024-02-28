@@ -1,5 +1,4 @@
-#Object Orientated Programming
-
+# Object Orientated Programming
 
 
 # ferrari = Car()
@@ -19,7 +18,7 @@
 # Car -> Blueprint | Class blueprint object
 # class Car:
 #     def __init__(self, name, engine, wheels, doors):
-      
+
 #         self.name = name
 #         self.engine = engine
 #         self.wheels = wheels
@@ -31,7 +30,7 @@
 
 # # self -> to the object created
 # # ferrari -> object
-# # __init__ -> first method called 
+# # __init__ -> first method called
 
 # ferrari = Car("Ferrari", "V8", 4, 2)
 # toyota = Car("Toyota", "V4", 4, 4)
@@ -45,11 +44,10 @@
 # print(porshe.name, porshe.engine, porshe.wheels)
 
 
-
-#Bank Account
-#1. acc_no
-#2. name
-#3. balance
+# Bank Account
+# 1. acc_no
+# 2. name
+# 3. balance
 
 # class Bank:
 #     def __init__(self, acc_no, name, balance):
@@ -57,6 +55,7 @@
 #         self.name = name
 #         self.balance = balance
 
+# gemma, dhara, caleb - objects/instances of bank
 # gemma = Bank(123, "Gemma Porril", 15000)
 # dhara = Bank(124, "Dhara Kara", 50001)
 # caleb = Bank(125, "Caleb Potts", 100000)
@@ -79,19 +78,19 @@
 
 # print(gemma.display_balance())
 
-#Task 3
-#caleb.withdraw(2000) -> Your balance is: R98,000
-#caleb.display_balance() -> Your balance is: R98,000
+# Task 3
+# caleb.withdraw(2000) -> Your balance is: R98,000
+# caleb.display_balance() -> Your balance is: R98,000
 
 # class Bank:
 #     def __init__(self, acc_no, name, balance):
 #         self.acc_no = acc_no
 #         self.name = name
 #         self.balance = balance
-    
+
 #     def display_balance(self):
 #         print(f"Your balance is: R{self.balance:,.2f}")
-    
+
 #     def withdraw(self, amount):
 #         if amount > 0 and amount <= self.balance:
 #             self.balance -= amount
@@ -103,28 +102,28 @@
 # dhara = Bank(124, "Dhara Kara", 50001)
 # caleb = Bank(125, "Caleb Potts", 100000)
 
-# caleb.withdraw(2000) 
+# caleb.withdraw(2000)
 # caleb.display_balance()
 
-#Task 4
-#dhara.deposit(10_000) -> succcess. Your balance is: R60,001
+# # Task 4
+# # dhara.deposit(10_000) -> succcess. Your balance is: R60,001
 
-# class Bank:
+# class Bank1:
 #     def __init__(self, acc_no, name, balance):
 #         self.acc_no = acc_no
 #         self.name = name
 #         self.balance = balance
-    
+
 #     def display_balance(self):
 #         return f"Your balance is: R{self.balance:,.2f}"
-    
+
 #     def withdraw(self, amount):
 #         if amount > 0 and amount <= self.balance:
 #             self.balance -= amount
 #             return f"Withdrawal successful. Your balance is now: R{self.balance:,.2f}"
 #         else:
 #             return "Withdrawal failed. Insufficient funds."
-        
+
 #     def deposit(self, dep_amount):
 #         if dep_amount > 0:
 #             self.balance += dep_amount
@@ -133,9 +132,9 @@
 #             return "Deposit failed. Invalid amount."
 
 
-# gemma = Bank(123, "Gemma Porril", 15_000)
-# dhara = Bank(124, "Dhara Kara", 50_001)
-# caleb = Bank(125, "Caleb Potts", 100_000)
+# gemma = Bank1(123, "Gemma Porril", 15_000)
+# dhara = Bank1(124, "Dhara Kara", 50_001)
+# caleb = Bank1(125, "Caleb Potts", 100_000)
 
 # deposited = dhara.deposit(10_000)
 # print(deposited)
@@ -143,66 +142,105 @@
 
 # Assignment - Bank account statement
 # List of dictionaries
-# #  id   Date       Type     Amount  
+# #  id   Date       Type     Amount
 # 1.  1  29 Feb   withdraw       2000
 # 2.  2  1 Mar    deposit        6000
-# 3.  3  3 Mar    deposit        7000   
+# 3.  3  3 Mar    deposit        7000
 
-class BankStatement:
-    def __init__(self):
-        self.transactions = []
-        self.transaction_id = 0
+# class variables
 
-    def add_transaction(self, acc_no, name, transaction_type, amount, date):
-        self.transaction_id += 1
-        self.transactions.append({"id": self.transaction_id, "date": date, "type": transaction_type, "amount": amount})
 
-    def format_statement(self):
-        formatted_statement = "# {:<5} {:<10} {:<10} {:<10}\n".format("id", "Date", "Type", "Amount")
-        for transaction in self.transactions:
-            formatted_statement += "{:<2}. {:<5} {:<10} {:<10} R{:<10}\n".format(transaction["id"], transaction["date"], transaction["type"], transaction["amount"])
-        return formatted_statement
+# class Bank:
+#     interest_rate = 0.02
 
-class Bank:
+#     def __init__(self, acc_no, name, balance):
+#         self.acc_no = acc_no
+#         self.name = name
+#         self.balance = balance
+
+#         # Task 2
+#         # insance method
+
+#     def display_balance(self):
+#         return f"Your balance is: R{self.balance:,.2f}"
+
+#     def withdraw(self, amount):
+#         if amount > 0 and amount <= self.balance:
+#             self.balance -= amount
+#             return f"Withdrawal successful. Your balance is now: R{self.balance:,.2f}"
+#         else:
+#             return "Withdrawal failed. Insufficient funds."
+
+#     def deposit(self, amount):
+#         if dep_amount > 0:
+#             self.balance += dep_amount
+#             return f"Deposit successful. Your balance is now: R{self.balance:,.2f}"
+#         else:
+#             return "Deposit failed. Invalid amount."
+
+#     def apply_interest(self):
+#         self.balance = self.balance + self.balance * Bank.interest_rate
+#         return f"Interest added. Your balance is now: R{self.balance:,.2f}"
+
+
+# gemma = Bank(123, "Gemma Porril", 15_000)
+# dhara = Bank(124, "Dhara Kara", 50_001)
+# caleb = Bank(125, "Caleb Potts", 100_000)
+
+# gemma.apply_interest()
+# dhara.apply_interest()
+# caleb.apply_interest()
+
+# print(gemma.display_balance())
+# print(dhara.display_balance())
+# print(caleb.display_balance())
+
+
+# Encapsulation | Putting in all together container | giving access
+class Bank2:
+    interest_rate = 0.02
+
     def __init__(self, acc_no, name, balance):
         self.acc_no = acc_no
         self.name = name
-        self.balance = balance
-    
+        # Private variable
+        self.__balance = balance
+
+        # Task 2
+        # insance method
+
     def display_balance(self):
-        return f"Your balance is: R{self.balance:,.2f}"
-    
+        return f"Your balance is: R{self.__balance:,.2f}"
+
     def withdraw(self, amount):
-        if amount > 0 and amount <= self.balance:
-            self.balance -= amount
-            return f"Withdrawal successful. Your balance is now: R{self.balance:,.2f}"
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            return f"Withdrawal successful. Your balance is now: R{self.__balance:,.2f}"
         else:
             return "Withdrawal failed. Insufficient funds."
-        
-    def deposit(self, dep_amount):
+
+    def deposit(self, amount):
         if dep_amount > 0:
-            self.balance += dep_amount
-            return f"Deposit successful. Your balance is now: R{self.balance:,.2f}"
+            self.__balance += dep_amount
+            return f"Deposit successful. Your balance is now: R{self.__balance:,.2f}"
         else:
             return "Deposit failed. Invalid amount."
 
-# Creating Bank instances
-gemma = Bank(123, "Gemma Porril", 15_000)
-dhara = Bank(124, "Dhara Kara", 50_001)
-caleb = Bank(125, "Caleb Potts", 100_000)
+    def apply_interest(self):
+        self.__balance = self.__balance + self.__balance * Bank2.interest_rate
+        return f"Interest added. Your balance is now: R{self.__balance:,.2f}"
 
-# Creating BankStatement instance
-bank_statement = BankStatement()
 
-# Recording transactions
-gemma.withdraw(2000)
-bank_statement.add_transaction(gemma.acc_no, gemma.name, "Withdrawal", 2000, "29 Feb")
+gemma = Bank2(123, "Gemma Porril", 15_000)
+dhara = Bank2(124, "Dhara Kara", 50_001)
+caleb = Bank2(125, "Caleb Potts", 100_000)
 
-dhara.deposit(6000)
-bank_statement.add_transaction(dhara.acc_no, dhara.name, "Deposit", 6000, "1 Mar")
+gemma.apply_interest()
+dhara.apply_interest()
+caleb.apply_interest()
 
-dhara.deposit(7000)
-bank_statement.add_transaction(dhara.acc_no, dhara.name, "Deposit", 7000, "3 Mar")
+print(gemma.display_balance())
+print(dhara.display_balance())
+print(caleb.display_balance())
 
-# Getting and printing the formatted bank statement
-print(bank_statement.format_statement())
+print(gemma.display_balance())
