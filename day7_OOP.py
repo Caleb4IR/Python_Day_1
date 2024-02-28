@@ -197,50 +197,196 @@
 
 
 # Encapsulation | Putting in all together container | giving access
-class Bank2:
-    interest_rate = 0.02
+# class Bank2:
+#     interest_rate = 0.02
 
-    def __init__(self, acc_no, name, balance):
-        self.acc_no = acc_no
-        self.name = name
-        # Private variable
-        self.__balance = balance
+#     def __init__(self, acc_no, name, balance):
+#         self.acc_no = acc_no
+#         self.name = name
+#         # Private variable
+#         self.__balance = balance
 
-        # Task 2
-        # insance method
+#         # Task 2
+#         # insance method
 
-    def display_balance(self):
-        return f"Your balance is: R{self.__balance:,.2f}"
+#     def display_balance(self):
+#         return f"Your balance is: R{self.__balance:,.2f}"
 
-    def withdraw(self, amount):
-        if amount > 0 and amount <= self.__balance:
-            self.__balance -= amount
-            return f"Withdrawal successful. Your balance is now: R{self.__balance:,.2f}"
-        else:
-            return "Withdrawal failed. Insufficient funds."
+#     def withdraw(self, amount):
+#         if amount > 0 and amount <= self.__balance:
+#             self.__balance -= amount
+#             return f"Withdrawal successful. Your balance is now: R{self.__balance:,.2f}"
+#         else:
+#             return "Withdrawal failed. Insufficient funds."
 
-    def deposit(self, amount):
-        if dep_amount > 0:
-            self.__balance += dep_amount
-            return f"Deposit successful. Your balance is now: R{self.__balance:,.2f}"
-        else:
-            return "Deposit failed. Invalid amount."
+#     def deposit(self, amount):
+#         if dep_amount > 0:
+#             self.__balance += dep_amount
+#             return f"Deposit successful. Your balance is now: R{self.__balance:,.2f}"
+#         else:
+#             return "Deposit failed. Invalid amount."
 
-    def apply_interest(self):
-        self.__balance = self.__balance + self.__balance * Bank2.interest_rate
-        return f"Interest added. Your balance is now: R{self.__balance:,.2f}"
+#     def apply_interest(self):
+#         self.__balance = self.__balance + self.__balance * Bank2.interest_rate
+#         return f"Interest added. Your balance is now: R{self.__balance:,.2f}"
 
 
-gemma = Bank2(123, "Gemma Porril", 15_000)
-dhara = Bank2(124, "Dhara Kara", 50_001)
-caleb = Bank2(125, "Caleb Potts", 100_000)
+# gemma = Bank2(123, "Gemma Porril", 15_000)
+# dhara = Bank2(124, "Dhara Kara", 50_001)
+# caleb = Bank2(125, "Caleb Potts", 100_000)
 
-gemma.apply_interest()
-dhara.apply_interest()
-caleb.apply_interest()
+# gemma.apply_interest()
+# dhara.apply_interest()
+# caleb.apply_interest()
 
-print(gemma.display_balance())
-print(dhara.display_balance())
-print(caleb.display_balance())
+# print(gemma.display_balance())
+# print(dhara.display_balance())
+# print(caleb.display_balance())
 
-print(gemma.display_balance())
+# print(gemma.display_balance())
+
+
+# class Bank2:
+#     # class variable | All your instances share theclass variables
+#     interest_rate = 0.02
+#     total_accounts = 0
+
+#     def __init__(self, acc_no, name, balance):
+#         self.acc_no = acc_no
+#         self.name = name
+#         # Private variable
+#         self.__balance = balance
+#         Bank2.total_accounts += 1
+#         print(self.name, Bank2.total_accounts)
+
+#         # Task 2
+#         # insance method
+
+#     @classmethod  # cls -> class
+#     def update_interest_rate(cls, rate):
+#         Bank2.interest_rate = rate
+
+#     #Static methods -> no cls | normal function
+#     @staticmethod
+#     def get_total_no_accounts():
+#         return f"In total we have {Bank.no_of_accounts} accounts"
+
+
+#     def display_balance(self):
+#         return f"Your balance is: R{self.__balance:,.2f}"
+
+#     # instance method
+#     def withdraw(self, amount):
+#         if amount > 0 and amount <= self.__balance:
+#             self.__balance -= amount
+#             return f"Withdrawal successful. Your balance is now: R{self.__balance:,.2f}"
+#         else:
+#             return "Withdrawal failed. Insufficient funds."
+
+#     def deposit(self, amount):
+#         if dep_amount > 0:
+#             self.__balance += dep_amount
+#             return f"Deposit successful. Your balance is now: R{self.__balance:,.2f}"
+#         else:
+#             return "Deposit failed. Invalid amount."
+
+#     def apply_interest(self):
+#         self.__balance = self.__balance + self.__balance * Bank2.interest_rate
+#         return f"Interest added. Your balance is now: R{self.__balance:,.2f}"
+
+#     @classmethod
+#     def get_total_no_accounts(cls):
+#         return cls.total_accounts
+
+
+# gemma = Bank2(123, "Gemma Porril", 15_000)
+# dhara = Bank2(124, "Dhara Kara", 50_001)
+# caleb = Bank2(125, "Caleb Potts", 100_000)
+# alex = Bank2(126, "Alex Lazarus", 100)
+
+
+# print(gemma.acc_no)  # public
+# # print(gemma.__balance) error | private
+# print(gemma.display_balance())
+
+# Bank2.update_interest_rate(0.10)
+
+# # Apply interest
+# alex.apply_interest()
+# print(alex.display_balance())
+
+# # Task
+# # print(Bank2.get_total_no_accounts())  # In total we should have 4 accounts
+# print(Bank2.get_total_no_accounts())
+
+
+# Task 1
+# class Circle:
+#     pi = 3.14159 #class variable
+
+# #circle1 = Circle(2)
+# #print(circle1.calculate_area()) ->
+# circle_from_dia = Circle.from_diameter(10)
+# #circle_from_dia.calculate_area()
+
+
+class Circle:
+    pi = 3.14159  # Class variable
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    @classmethod
+    def from_diameter(cls, diameter):
+        radius = diameter / 2
+        return cls(radius)
+
+    def calculate_area(self):
+        return self.pi * self.radius**2
+
+
+circle1 = Circle(2)
+print(circle1.calculate_area())
+
+circle_from_dia = Circle.from_diameter(10)
+print(circle_from_dia.calculate_area())
+
+
+# Task 2 - perimeter
+# static method
+# Circle.perimeter(10) 10 -> radius
+class Circle:
+    pi = 3.14159  # Class variable
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    @staticmethod
+    def perimeter(radius):
+        return 2 * Circle.pi * radius
+
+
+print(Circle.perimeter(10))
+
+
+# Task 3 - combine them
+class Circle:
+    pi = 3.14159  # Class variable
+
+    def __init__(self, radius):
+        self.radius = radius
+
+    @classmethod
+    def from_diameter(cls, diameter):
+        radius = diameter / 2
+        return cls(radius)
+
+    def calculate_area(self):
+        return self.pi * self.radius**2
+
+    @staticmethod
+    def perimeter(radius):
+        return 2 * Circle.pi * radius
+
+
+print(Circle.perimeter(10))
