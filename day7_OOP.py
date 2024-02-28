@@ -330,63 +330,206 @@
 # #circle_from_dia.calculate_area()
 
 
-class Circle:
-    pi = 3.14159  # Class variable
+# class Circle:
+#     pi = 3.14159  # Class variable
 
-    def __init__(self, radius):
-        self.radius = radius
+#     def __init__(self, radius):
+#         self.radius = radius
 
-    @classmethod
-    def from_diameter(cls, diameter):
-        radius = diameter / 2
-        return cls(radius)
+#     @classmethod
+#     def from_diameter(cls, diameter):
+#         radius = diameter / 2
+#         return cls(radius)
 
-    def calculate_area(self):
-        return self.pi * self.radius**2
-
-
-circle1 = Circle(2)
-print(circle1.calculate_area())
-
-circle_from_dia = Circle.from_diameter(10)
-print(circle_from_dia.calculate_area())
+#     def calculate_area(self):
+#         return self.pi * self.radius**2
 
 
-# Task 2 - perimeter
-# static method
-# Circle.perimeter(10) 10 -> radius
-class Circle:
-    pi = 3.14159  # Class variable
+# circle1 = Circle(2)
+# print(circle1.calculate_area())
 
-    def __init__(self, radius):
-        self.radius = radius
+# circle_from_dia = Circle.from_diameter(10)
+# print(circle_from_dia.calculate_area())
 
+
+# # Task 2 - perimeter
+# # static method
+# # Circle.perimeter(10) 10 -> radius
+# class Circle:
+#     pi = 3.14159  # Class variable
+
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     @staticmethod
+#     def perimeter(radius):
+#         return 2 * Circle.pi * radius
+
+
+# print(Circle.perimeter(10))
+
+
+# # Task 3 - combine them
+# class Circle:
+#     pi = 3.14159  # Class variable
+
+#     def __init__(self, radius):
+#         self.radius = radius
+
+#     @classmethod
+#     def from_diameter(cls, diameter):
+#         radius = diameter / 2
+#         return cls(radius)
+
+#     def calculate_area(self):
+#         return self.pi * self.radius**2
+
+#     @staticmethod
+#     def perimeter(radius):
+#         return 2 * Circle.pi * radius
+
+
+# print(Circle.perimeter(10))
+
+
+# # Inheritance: Animal(Base/Parent) -> Dog
+# class Animal:
+#     def __init__(self, name):
+#         self.name = name
+
+#     def speak(self):
+#         return "Some sound"
+
+
+# class Dog(Animal):
+#     def __init__(self, name, speed):
+#         super().__init__(name)
+#         self.speed = speed
+
+#     def run(self):
+#         return "🐶 wags tail"
+
+#     #Polymorphism | overriding methods
+#     def speak(self):
+#         return "Woof !! 🐕"
+
+#     def speed_bonus(self):
+#         return f"Running at {self.speed *2}km/hr"
+
+
+# toby = Animal("Toby")
+# maxy = Dog("Maxy", 20)
+
+# print(toby.speak())
+# print(maxy.name)
+# print(maxy.speak())
+# print(maxy.run())
+# print(maxy.speed_bonus())
+
+
+# Task Bank
+class Bank2:
+    # class variable | All your instances share theclass variables
+    interest_rate = 0.02
+    total_accounts = 0
+
+    def __init__(self, acc_no, name, balance):
+        self.acc_no = acc_no
+        self.name = name
+        # Private variable
+        self.__balance = balance
+        Bank2.total_accounts += 1
+
+        # Task 2
+        # insance method
+
+    @classmethod  # cls -> class
+    def update_interest_rate(cls, rate):
+        Bank2.interest_rate = rate
+
+    # Static methods -> no cls | normal function
     @staticmethod
-    def perimeter(radius):
-        return 2 * Circle.pi * radius
+    def get_total_no_accounts():
+        return f"In total we have {Bank.no_of_accounts} accounts"
+
+    def display_balance(self):
+        return f"Your balance is: R{self.__balance:,.2f}"
+
+    # instance method
+    def withdraw(self, amount):
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            return f"Withdrawal successful. Your balance is now: R{self.__balance:,.2f}"
+        else:
+            return "Withdrawal failed. Insufficient funds."
+
+    def deposit(self, dep_amount):
+        if dep_amount > 0:
+            self.__balance += dep_amount
+            return f"Deposit successful. Your balance is now: R{self.__balance:,.2f}"
+        else:
+            return "Deposit failed. Invalid amount."
+
+    def apply_interest(self):
+        self.__balance = self.__balance + self.__balance * self.interest_rate
+        return f"Interest added. Your balance is now: R{self.__balance:,.2f}"
+
+    # def get_balance(self):
+    #     return self.__balance
 
 
-print(Circle.perimeter(10))
+gemma = Bank2(123, "Gemma Porril", 15_000)
+dhara = Bank2(124, "Dhara Kara", 50_001)
+caleb = Bank2(125, "Caleb Potts", 100_000)
+alex = Bank2(126, "Alex Lazarus", 100)
 
 
-# Task 3 - combine them
-class Circle:
-    pi = 3.14159  # Class variable
-
-    def __init__(self, radius):
-        self.radius = radius
-
-    @classmethod
-    def from_diameter(cls, diameter):
-        radius = diameter / 2
-        return cls(radius)
-
-    def calculate_area(self):
-        return self.pi * self.radius**2
-
-    @staticmethod
-    def perimeter(radius):
-        return 2 * Circle.pi * radius
+# class SavingsAccount:
+#     pass
 
 
-print(Circle.perimeter(10))
+# class CheckingAccount:
+#     pass
+
+
+# SavingsAccount -  interest_rate = 0.05
+# Task 1
+
+
+class SavingsAccount(Bank2):
+    interest_rate = 0.05
+
+    # def __init__(self, acc_no, name, balance):
+    #     super().__init__(acc_no, name, balance)
+
+    # def apply_interest(self):
+    #     self.balance = self.get_balance()  # Accessing balance using a method
+    #     self.balance += self.balance * SavingsAccount.interest_rate
+    #     self._Bank2__balance = self.balance
+    #     return f"Interest added. Your balance is now: R{self.balance:,.2f}"
+
+
+gemma = SavingsAccount(123, "Gemma Porrill", 1_000)
+gemma.apply_interest()
+print(gemma.display_balance())  # 1_050
+
+# Task 2
+# CheckingAccount - withdraw  R1
+# alex = CheckingAccount(126, "Alex Lazarus", 100)
+# alex(50)
+#  49
+
+
+class CheckingAccount(Bank2):
+    withdrawal_fee = 1
+
+    def __init__(self, acc_no, name, balance):
+        super().__init__(acc_no, name, balance)
+
+    def withdraw(self, amount):
+        total_amount = amount + self.withdrawal_fee
+        return super().withdraw(total_amount)
+
+
+alex = CheckingAccount(126, "Alex Lazarus", 100)
+print(alex.withdraw(50))
