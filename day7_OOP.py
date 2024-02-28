@@ -436,8 +436,8 @@ class Bank2:
     def __init__(self, acc_no, name, balance):
         self.acc_no = acc_no
         self.name = name
-        # Private variable
-        self.__balance = balance
+        # Potected Variable
+        self._balance = balance
         Bank2.total_accounts += 1
 
         # Task 2
@@ -453,26 +453,26 @@ class Bank2:
         return f"In total we have {Bank.no_of_accounts} accounts"
 
     def display_balance(self):
-        return f"Your balance is: R{self.__balance:,.2f}"
+        return f"Your balance is: R{self._balance:,.2f}"
 
     # instance method
     def withdraw(self, amount):
-        if amount > 0 and amount <= self.__balance:
-            self.__balance -= amount
-            return f"Withdrawal successful. Your balance is now: R{self.__balance:,.2f}"
+        if amount > 0 and amount <= self._balance:
+            self._balance -= amount
+            return f"Withdrawal successful. Your balance is now: R{self._balance:,.2f}"
         else:
             return "Withdrawal failed. Insufficient funds."
 
     def deposit(self, dep_amount):
         if dep_amount > 0:
-            self.__balance += dep_amount
-            return f"Deposit successful. Your balance is now: R{self.__balance:,.2f}"
+            self._balance += dep_amount
+            return f"Deposit successful. Your balance is now: R{self._balance:,.2f}"
         else:
             return "Deposit failed. Invalid amount."
 
     def apply_interest(self):
-        self.__balance = self.__balance + self.__balance * self.interest_rate
-        return f"Interest added. Your balance is now: R{self.__balance:,.2f}"
+        self._balance = self._balance + self._balance * self.interest_rate
+        return f"Interest added. Your balance is now: R{self._balance:,.2f}"
 
     # def get_balance(self):
     #     return self.__balance
@@ -533,3 +533,41 @@ class CheckingAccount(Bank2):
 
 alex = CheckingAccount(126, "Alex Lazarus", 100)
 print(alex.withdraw(50))
+
+
+# Magic Methods __repr__ , __str__
+class CheckingAccount(Bank2):
+    withdrawal_fee = 1
+
+    def __init__(self, acc_no, name, balance):
+        super().__init__(acc_no, name, balance)
+
+    def withdraw(self, amount):
+        total_amount = amount + self.withdrawal_fee
+        return super().withdraw(total_amount)
+
+    """Human readable output"""
+
+    def __str__(self):
+        return f"This acount belongs to: {self.name} and has balance of {self._balance}"
+
+    """DeX: """
+
+    def __repr__(self):
+        return f"CheckingAccount({self.acc_no}, {self.name}, {self._balance})"
+
+    def __add__(self, other):
+        return self._balance + other._balance
+
+
+alex = CheckingAccount(126, "Alex Lazarus", 100)
+print(alex.withdraw(50))
+print(alex)
+
+caleb = CheckingAccount(125, "Caleb Potts", 100_000)
+print(caleb)
+
+print(repr(alex))
+print(repr(caleb))
+
+print(alex + caleb)
