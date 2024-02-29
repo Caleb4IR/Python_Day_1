@@ -556,6 +556,7 @@ class CheckingAccount(Bank2):
     def __repr__(self):
         return f"CheckingAccount({self.acc_no}, {self.name}, {self._balance})"
 
+    # In place of operator
     def __add__(self, other):
         return self._balance + other._balance
 
@@ -568,6 +569,6 @@ caleb = CheckingAccount(125, "Caleb Potts", 100_000)
 print(caleb)
 
 print(repr(alex))
-print(repr(caleb))
+print(repr(caleb))  # To reconstruct the instance
 
 print(alex + caleb)
