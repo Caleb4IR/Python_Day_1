@@ -1,4 +1,4 @@
-# Iterable? __iter__ | Which can be looped as many times, List, dict,
+# Iterable? __iter__ | Which can be looped as many times, List, dict, setss
 # Iterator? __next__ | Can only loop them once | Memory management
 # range(0, 100_00_00, 1) | list with 100 mil lots of memory
 # iterator remember one thing at time | save memory
