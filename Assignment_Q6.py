@@ -19,5 +19,5 @@ for sale in sales:
     else:
         sales_totals[salesperson] = amount
 
-for salesperson, total in sales_totals.items():
-    print(f"{salesperson}: {total}")
+output_dict = sales_totals
+print(output_dict)

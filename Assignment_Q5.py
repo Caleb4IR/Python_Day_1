@@ -19,5 +19,5 @@ for transaction in transactions:
     else:
         category_totals[category] = amount
 
-for category, total in category_totals.items():
-    print(f"{category}: {total}")
+output_dict = category_totals
+print(output_dict)

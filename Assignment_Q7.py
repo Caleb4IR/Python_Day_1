@@ -7,5 +7,4 @@ spells = [("Lumos", 5), ("Obliviate", 10), ("Expelliarmus", 7)]
 
 sorted_spells = sorted(spells, key=lambda x: x[1], reverse=True)
 
-for spell in sorted_spells:
-    print(spell)
+print(sorted_spells)

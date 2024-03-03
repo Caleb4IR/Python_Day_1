@@ -10,5 +10,4 @@ books = [
 
 filtered_books = [book["title"].upper() for book in books if book["pages"] > 120]
 
-for title in filtered_books:
-    print(title)
+print(filtered_books)
