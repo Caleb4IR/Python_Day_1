@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            background: orange;
+            /* width: 500px; */
+            width: 50%;
+        }
+        p{
+            background: blue;
+        }
+        .web{
+            /*Hybrid of block & inline*/
+            /*Respects height & width & Side by Side*/
+            display: inline-block;
+            
+            height: 400px;
+            width: 300px;
+            /* color: red; */
+        }
+    </style>
+</head>
+<body>
+    <a class="web" href="">Google.com</a> <a href="">Link 10</a>
+    <!--display: block - p, h1-hs-->
+    <!--Stacked-->
+    <!--Display: block-->
+    <!--Full width of container-->
+    <!--Block elements respect height and width-->
+    <p>Para 1</p> <p>Para 2</p>
+
+    <!--Display: Inline-->
+    <!--Side by side-->
+    <!--Only content width-->
+    <!--Inline elements do not respect height and width-->
+    <div class="container">
+        <a href="">Link 1</a>
+    </div>
+    <a href="">Link 2</a>
+
+    <div class="container">
+        <p>Para 1</p> 
+        <p>Para 2</p>
+        <h1>Cool</h1>
+    </div>
+    <img src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41561-021-00694-4/MediaObjects/41561_2021_694_Figa_HTML.png"
+    alt=""/>
+
+    <p>Par 2</p>
+
+</body>
+</html>
