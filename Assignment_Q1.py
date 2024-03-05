@@ -10,23 +10,14 @@ students = [
 # Expected Task: Sort the list of dictionaries by grade in descending order and add a "rank" key to each dictionary based on the sorting.
 
 # 1st Code
-# def get_grade(student):
-#     return student["grade"]
+def get_grade(student):
+    return student["grade"]
 
-# students_sorted = sorted(students, key=get_grade, reverse=True)
-
-# for i, student in enumerate(students_sorted):
-#     student["rank"] = i + 1
-
-# for student in students_sorted:
-#     print(student)
-
-
-# Improved Code
-students_sorted = sorted(students, key=lambda x: x["grade"], reverse=True)
+students_sorted = sorted(students, key=get_grade, reverse=True)
 
 for i, student in enumerate(students_sorted):
     student["rank"] = i + 1
 
 for student in students_sorted:
     print(student)
+
