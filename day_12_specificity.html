@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+ 
+    <!-- CSS - Cascading (override) Style Sheet -->
+    <style>
+      p {
+        font-size: 48px;
+      }
+ 
+      /* 1.0.0 */
+      #cool {
+        color: plum;
+      }
+ 
+      /* 0.1.0 */
+      .fun {
+        color: skyblue;
+      }
+ 
+      p {
+        color: crimson !important;
+      }
+ 
+      /* 0.0.1 */
+      p {
+        color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="fun" id="cool" style="color: teal">Para</p>
+  </body>
+</html>
+ 
+<!-- Specificity -->
+<!-- (!important (UN)   > inline (president) > id (mom))  >  class (father) >  element (you) -->
+<!-- When there is clash between styles which would be given higher priority -->

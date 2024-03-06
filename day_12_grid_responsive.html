@@ -26,12 +26,20 @@
       }
  
       .container {
-        /* display: flex; */
         display: grid;
-        /* grid-template-columns: 1fr 1fr 1fr;
-        grid-template-columns: 1fr 2fr 1fr; */
-        grid-template-columns: repeat(3, 1fr);
-      }
+        /* RAM technique - repeat auto-fit minmax*/
+        /*Easy way*/
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+
+        }
+
+        @media(min-width: 440px) {
+        /*after 440px I want a 2 column layout*/
+        .container{
+            grid-template-columns: repeat(2, 1fr);
+        }
+        }
+      
     </style>
   </head>
   <body>
