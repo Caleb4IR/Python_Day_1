@@ -99,11 +99,9 @@ import json
 #     print(data)
 
 
-# Read the JSON data from the existing file
 with open("blog_post.json", "r") as file:
     data = json.load(file)
 
-# Extract relevant information and create the summary
 posts_summary = []
 for post in data["posts"]:
     summary_item = {
@@ -113,6 +111,5 @@ for post in data["posts"]:
     }
     posts_summary.append(summary_item)
 
-# Create a new JSON file with the summary
 with open("posts_summary.json", "w") as file:
-    json.dump({"posts_summary": posts_summary}, file, indent=2)
+    json.dump({"posts_summary": posts_summary}, file, indent=4)
